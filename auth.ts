@@ -6,7 +6,7 @@ import { PrismaClient } from '@prisma/client';
 import Google from "next-auth/providers/google"
 import Yandex from "next-auth/providers/yandex"
 import Vk from "next-auth/providers/vk"
-// import GitHub from "next-auth/providers/github"
+import GitHub from "next-auth/providers/github"
 
 
 const prismaDB = new PrismaClient();
@@ -15,7 +15,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
   providers: [
-    // GitHub,
+    GitHub,
     Yandex,
     Vk,
     Google,
