@@ -1,0 +1,15 @@
+.btnIcon {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: scale .1s linear;
+  &:hover {
+    scale: 1.1;
+  }
+  &:active {
+    scale: 0.9;
+  }
+  & img {
+    height: 25px;
+  }
+}

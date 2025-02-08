@@ -1,0 +1,9 @@
+.sidebar {
+  width: 25%;
+  border-right: 1px solid #00000040;
+  padding: 10px;
+  & li {
+    list-style: none;
+
+  }
+}
