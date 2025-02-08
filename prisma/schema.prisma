@@ -72,7 +72,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
 
-  age       Int
+  age       Int?
   Goods     Goods[]
   Favorites Favorites[]
 
