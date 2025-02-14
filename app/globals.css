@@ -43,23 +43,35 @@ a {
 main {
   display: flex;
   height: calc(100vh - 40px);
-  
+  margin: 2em 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 20px;
+  width: 100%;
+  padding: 15px;
 
-    width: 100%;
-    padding: 15px;
-    /* overflow-y: auto; */
 }
 
 .center {
   display: flex;
   align-items: center;
   justify-content: center;
+  
   & span {
     font-size: 20px;
     font-weight: bold;
     margin-right: 8px;
   }
 }
+
+.border-left {
+  border-left: 1px solid #00000040;
+}
+.cursor-pointer {
+  cursor: pointer;
+}
+
+
 /* 
 @media (prefers-color-scheme: dark) {
   html {

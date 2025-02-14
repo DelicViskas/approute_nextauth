@@ -9,7 +9,7 @@
   &:active {
     scale: 0.9;
   }
-  & img {
+  /* & img {
     height: 25px;
-  }
+  } */
 }

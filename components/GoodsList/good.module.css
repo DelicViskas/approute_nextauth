@@ -1,0 +1,12 @@
+.good {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+
+}
+
+.price {
+  font-weight: bold;
+}

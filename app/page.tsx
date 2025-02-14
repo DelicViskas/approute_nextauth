@@ -1,10 +1,17 @@
+import GoodsList from "@/components/GoodsList";
+// import { prisma } from "@/prisma/prisma";
 
 
 
-export default function Home() {
-  return (<div>
-
-    <h1>afs</h1>
-  </div>
+export default async function Home() {
+  const
+    responce = await fetch('https://approute-nextauth.vercel.app/api/goods/'),
+    goods = await responce.json();
+    // goods = await prisma.goods.findMany();
+    // console.log(goods);
+    
+  return (<>
+    {goods && <GoodsList goods={goods} />}
+  </>
   );
 }

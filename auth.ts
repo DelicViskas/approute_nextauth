@@ -4,8 +4,8 @@ import { prisma } from "@/prisma/prisma"
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaClient } from '@prisma/client';
 import Google from "next-auth/providers/google"
-import Yandex from "next-auth/providers/yandex"
-import Vk from "next-auth/providers/vk"
+// import Yandex from "next-auth/providers/yandex"
+// import Vk from "next-auth/providers/vk"
 import GitHub from "next-auth/providers/github"
 
 
@@ -16,8 +16,6 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
   session: { strategy: "jwt" },
   providers: [
     GitHub,
-    Yandex,
-    Vk,
     Google,
     CredentialsProvider({
       name: 'Credentials',
@@ -25,18 +23,41 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         username: { label: 'Username', type: 'text' },
         password: { label: 'Password', type: 'password' }
       },
+
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       async authorize(credentials, req) {
         console.log('credentials', credentials);
-
-        if ('1' === credentials?.username && '1' === credentials.password) {
-          const user = await prismaDB.user.findFirst({ where: { id: '1' } });
-          console.log('authorize user=', user);
-          return user;
+        switch (true) {
+          case ('1' === credentials?.username && '1' === credentials.password):
+            return await prismaDB.user.findFirst({ where: { id: 'cm74ro0ft0000xfxrx6beyudf' } });
+          case ('2' === credentials?.username && '2' === credentials.password):
+            return await prismaDB.user.findFirst({ where: { id: 'cm74ro0ft0001xfxrg0y1b6xd' } });
+          case ('3' === credentials?.username && '3' === credentials.password):
+            return await prismaDB.user.findFirst({ where: { id: 'cm74ro0ft0002xfxrji7w69q4' } });
+          case ('4' === credentials?.username && '4' === credentials.password):
+            return await prismaDB.user.findFirst({ where: { id: 'cm74ro0ft0004xfxrbwe9jdbs' } });
+          case ('5' === credentials?.username && '5' === credentials.password):
+            return await prismaDB.user.findFirst({ where: { id: 'cm74ro0ft0003xfxrfd9rlzq8' } });
         }
+ 
         return null;
       }
     })
-  ]
-  
+  ],
+  callbacks: {
+    async jwt({ token, user }) {
+      if (user) {
+        token.id = user.id; 
+      }
+      // console.log("jwt:", token);
+      return token;
+    },
+    async session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id as string;
+      }
+      // console.log("session:", session.user);
+      return session;
+    },
+  }
 })
