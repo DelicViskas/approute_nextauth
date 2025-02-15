@@ -4,7 +4,8 @@ import Good from "./Good";
 export type Good = {
   image: string, 
   title: string, 
-  price: number
+  price: number,
+  id: number
 }
 
 export default function GoodsList({goods} : {goods: Good[]}) {

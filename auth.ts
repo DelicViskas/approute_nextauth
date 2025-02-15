@@ -4,8 +4,6 @@ import { prisma } from "@/prisma/prisma"
 import CredentialsProvider from 'next-auth/providers/credentials';
 import { PrismaClient } from '@prisma/client';
 import Google from "next-auth/providers/google"
-// import Yandex from "next-auth/providers/yandex"
-// import Vk from "next-auth/providers/vk"
 import GitHub from "next-auth/providers/github"
 
 

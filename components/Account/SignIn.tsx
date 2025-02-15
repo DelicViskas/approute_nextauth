@@ -1,7 +1,4 @@
 import { signIn } from "@/auth"
-// import Image from "next/image"
-
-// import ButtonIcon from "../Button/Button-icon"
 import { ReactElement } from "react"
 
 

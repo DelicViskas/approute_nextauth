@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header/Header";
+import { SessionProvider } from "next-auth/react";
 
 export const metadata: Metadata = {
   title: "Goods Market",
@@ -18,7 +19,7 @@ export default function RootLayout({
           <Header />
         <div className="container">
           <main>
-            {children}
+            <SessionProvider>{children}</SessionProvider>
           </main>
         </div>
       </body>
