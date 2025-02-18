@@ -8,7 +8,7 @@ import { type NextRequest,  NextResponse } from 'next/server'
 export async function GET(/* request: NextRequest */) {
   try {
     const session = await auth();
-    console.log("Session: ", session);
+    // console.log("Session: ", session);
 
 
     if (!session?.user) return NextResponse.json(null);
@@ -31,10 +31,9 @@ export async function GET(/* request: NextRequest */) {
     const mappedFavorites = favorites.map(({ goods, goodsId:id }) => ({
       id, 
       ...goods,
+      isFavorite: true
     }));
-  console.log(mappedFavorites);
-  // console.log('sf');
-  
+
     return NextResponse.json(mappedFavorites);
 
   } catch (error) {
@@ -50,14 +49,31 @@ export async function POST(request: NextRequest ) {
   
     if (!session?.user) return NextResponse.json("Unauthorized", {status: 401 })
     const req = await request.json();
-    await prisma.favorites.create({
-      data: {
-        accountId: session?.user?.id as string,
+    const count = await prisma.favorites.count({
+      where: {
+        accountId: session?.user?.id,
         goodsId: req.id
-      }
-    })
-    
-    return NextResponse.json(req, { status: 201 });
+      },
+    });
+    if(count){
+      await prisma.favorites.delete({
+        where: {
+          accountId_goodsId: {
+            accountId: session?.user?.id as string,
+            goodsId: req.id,
+          }}
+        })
+      return NextResponse.json(`Товар успешно удален`, { status: 201 });
+    }
+    else {
+      await prisma.favorites.create({
+        data: {
+          accountId: session?.user?.id as string,
+          goodsId: req.id
+        }
+      })
+      return NextResponse.json(`Товар успешно добавлен`, { status: 201 });
+    }
 
   } catch (error) {
     console.error("Ошибка при добвалении в избранное:", error);

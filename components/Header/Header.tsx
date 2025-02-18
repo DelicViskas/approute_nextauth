@@ -2,7 +2,7 @@ import Image from "next/image";
 import logo from '@/public/logo.svg'
 import cards from '@/public/cards.svg'
 import envelope from '@/public/envelope.svg'
-import heart from '@/public/heart.svg'
+import favorites from '@/public/favorites.svg'
 import classes from "./Header.module.css";
 import Link from "next/link";
 import ButtonIcon from "../Button/Button-icon";
@@ -24,7 +24,7 @@ export default async function Header() {
       </div> */}
       <div className={classes.btnGroup}>
         {session && <>
-          <Link href='/advertisements'>
+          <Link href='/mynotices'>
             <ButtonIcon><Image src={cards} height={50} width={24} title="мои объявления" alt="мои объявления" /></ButtonIcon>
           </Link>
           <Link href='/messages'>
@@ -32,7 +32,7 @@ export default async function Header() {
           </Link>
         </>}
         <Link href='/favorites'>
-          <ButtonIcon><Image src={heart} height={50} width={24}  title="избранное" alt="избранное" /></ButtonIcon>
+          <ButtonIcon><Image src={favorites} height={50} width={24}  title="избранное" alt="избранное" /></ButtonIcon>
         </Link>
         <Account />
       </div>
