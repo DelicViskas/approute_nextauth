@@ -1,0 +1,19 @@
+.sigin {
+  font-size: 20px;
+  font-weight: bold;
+  background-color: #00000040;
+  border-radius: 8px;
+  border: none;
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  translate: -50% -50%;
+  padding: .8em 1.5em;
+  transition: scale .2s linear, active .2s linear;
+  &:hover {
+    scale: 1.1;
+  }
+  &:active {
+    scale: .9;
+  }
+}

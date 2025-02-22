@@ -10,6 +10,7 @@ import Account from "../Account/Account";
 import { auth } from "@/auth";
 
 
+
 export default async function Header() {
   const session = await auth();
 
@@ -24,16 +25,15 @@ export default async function Header() {
       </div> */}
       <div className={classes.btnGroup}>
         {session && <>
-          <Link href='/mynotices'>
-            <ButtonIcon><Image src={cards} height={50} width={24} title="мои объявления" alt="мои объявления" /></ButtonIcon>
+          <Link href='/mygoods'>
+            <ButtonIcon src={cards} height={50} width={24} title="мои объявления" alt="мои объявления"></ButtonIcon>
           </Link>
           <Link href='/messages'>
-            <ButtonIcon><Image src={envelope} height={50} width={24}  title="мои сообщения" alt="мои сообщения" /></ButtonIcon>
+            <ButtonIcon src={envelope} height={50} width={24} title="мои сообщения" alt="мои сообщения" ></ButtonIcon>
+          </Link></> }
+          <Link href={'/favorites'}>
+            <ButtonIcon src={favorites} height={50} width={24} title="избранное" alt="избранное"></ButtonIcon>
           </Link>
-        </>}
-        <Link href='/favorites'>
-          <ButtonIcon><Image src={favorites} height={50} width={24}  title="избранное" alt="избранное" /></ButtonIcon>
-        </Link>
         <Account />
       </div>
     </div>

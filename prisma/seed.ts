@@ -1,4 +1,4 @@
-import { Categories, Goods, PrismaClient, User } from "@prisma/client";
+import { Categories, Goods, PrismaClient, Role, User } from "@prisma/client";
 const prisma = new PrismaClient();
 
 
@@ -22,6 +22,14 @@ async function main() {
         })
       )
     );
+    await prisma.user.create({
+      data: {
+        name: `admin`,
+        email: `admin@test.com`,
+        age: Math.floor(Math.random() * 20) + 18,
+        role: Role.ADMIN
+      }
+    })
     const goods: Goods[] =await Promise.all(
       Array.from({ length: 49 }, (_, i) =>
         prisma.goods.create({

@@ -1,20 +1,9 @@
-"use client";
-
-import GoodsList from "@/components/GoodsList/GoodsList";
-import { fetcher, favoritesURL } from "@/swr/fetcher";
-// import { useSession } from "next-auth/react";
-import useSWR from "swr";
-import Loading from "../loading";
+import { auth } from "@/auth";
+import GetFavorites from "@/components/GetFavorites/GetFavorites";
 
 
-export default function Home() {
-  const { data, error, isLoading } = useSWR(favoritesURL, fetcher);
-  // const session = useSession();
+export default async function Home() {
+  const session = await auth();
 
-  // if(!session.data) return <h1>Войдите</h1>
-  if (isLoading) return <Loading />
-  if (data?.length > 0) return <GoodsList data={data} />
-  if (error) return <h1>Ошибка загрузки данных...</h1>
-  return <h1>Добавьте товары в корзину</h1>
-
+  return <GetFavorites session={session}/>
 }

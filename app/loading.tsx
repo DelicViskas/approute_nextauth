@@ -1,26 +1,6 @@
-import Skeleton from "@/components/skeleton";
+import Skeleton from "@/components/skeleton/SkeletonGrid";
 
 export default function Loading() {
-  return <>
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-   <Skeleton />
-  </>
+
+  return <Skeleton num={20}/>
 }

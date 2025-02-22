@@ -41,15 +41,19 @@ a {
 }
 
 main {
-  /* height: calc(100vh - 40px); */
-  margin: 1em 0;
+  margin: 1em 0 0;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 20px;
   width: 100%;
   padding: 15px;
-
+  &:has(.noscroll) {
+    height: calc(100vh - 67px);
+    overflow-y: hidden;
+  }
 }
+
+
 
 .center {
   display: flex;

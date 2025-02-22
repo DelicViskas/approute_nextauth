@@ -1,6 +1,8 @@
-import { ReactElement } from "react";
+import Image from "next/image";
 import classes from "./Button-icon.module.css";
 
-export default function ButtonIcon({type,children}:{type?: "submit" | "reset" | "button" | undefined, children?: ReactElement}) {
-  return <button type={type? type : undefined} className={classes.btnIcon}>{children}</button>
+export default function ButtonIcon({ onClick, src, height, width, title, alt }: { onClick?: () => void, src: string, height: number, width: number, title: string, alt: string }) {
+  return <button className={classes.btnIcon}>
+    <Image onClick={onClick} src={src} height={height} width={width} title={title} alt={alt} />
+  </button>
 }

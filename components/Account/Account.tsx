@@ -18,7 +18,7 @@ export default async function Account() {
     </div>
   }
   return <>
-    <SignIn><ButtonIcon type="submit"><Image width={24}height={50} src={signInImg} title="профиль" alt="профиль" /></ButtonIcon></SignIn>
+    <SignIn><ButtonIcon width={24}height={50} src={signInImg} title="профиль" alt="профиль"></ButtonIcon></SignIn>
   </>
 
 }
