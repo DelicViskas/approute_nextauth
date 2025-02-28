@@ -1,5 +1,5 @@
 import Image from "next/image";
-import classes from "./SkeletonGrid.module.css";
+import classes from "./SkeletonGoods.module.css";
 import heart from '@/public/heart.svg'
 
 export default function SkeletonGrid({num}:{num: number}) {

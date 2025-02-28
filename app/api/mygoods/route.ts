@@ -10,9 +10,9 @@ export async function GET(/* request: NextRequest */) {
     const session = await auth();
     console.log("Session: ", session);
 
-    if(session?.user.role === 'ADMIN') {
+    if(session?.user?.role === 'ADMIN') {
       const goods = await prisma.goods.findMany({
-        
+
       });
       return NextResponse.json(goods);
     }

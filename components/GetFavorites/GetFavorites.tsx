@@ -19,7 +19,7 @@ export default function GetFavorites({session}: {session: Session | null}) {
 
   // if(!session) return <button className={classes.sigin} onClick={()=> signIn()}>войти</button>
   if (isLoading) return <Loading />
-  if (data?.length > 0) return <GoodsList session={session} data={data} />
+  if (data?.length > 0) return <div className="grid"><GoodsList session={session} data={data} /></div>
   if (error) return <h1>Ошибка загрузки данных...</h1>
   return <h1>Добавьте товары в корзину</h1>
 }

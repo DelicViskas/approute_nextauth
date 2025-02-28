@@ -8,8 +8,9 @@ import { Session } from "next-auth";
 
 export default function GetAllGoods({session}: {session: Session | null}) {
   const { data, isLoading } = useSWR<Goods[]>(goodsURL, fetcher)
+  console.log(data);
   
   if (isLoading) return <Loading />
-  if (data) return <GoodsList session={session} data={data}/>
+  if (data) return <div className="grid"><GoodsList session={session} data={data}/></div>
   return <h1>Ошибка загрузки данных...</h1>
 }

@@ -9,17 +9,27 @@ import { Session } from "next-auth";
 
 
 export default function Good({ good, session }: { good: GoodsandFav, session?: Session | null }) {
-  const { image, title, price, isFavorite } = good;
+  const {id, image, title, price, isFavorite } = good;
 
   const addFavorites = async () => {
-    if (session) {
-      await fetch(favoritesURL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(good)
-      });
+    if (session) { // post or delete изменить
+      if(isFavorite) {
+        await fetch(favoritesURL, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(id)
+        });
+      } else {
+        await fetch(favoritesURL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(id)
+        });
+      }
     } else {
       let favorites: GoodsandFav[] = JSON.parse(localStorage.getItem('favorites') || '[]');
       if (favorites.some(g => good.id === g.id)) {

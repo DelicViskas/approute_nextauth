@@ -40,20 +40,17 @@ a {
   margin: 0 auto;
 }
 
-main {
-  margin: 1em 0 0;
+.grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
   gap: 20px;
-  width: 100%;
-  padding: 15px;
+  padding: 1em;
+
   &:has(.noscroll) {
-    height: calc(100vh - 67px);
+    height: calc(100vh - 51px);
     overflow-y: hidden;
   }
 }
-
-
 
 .center {
   display: flex;

@@ -1,11 +1,12 @@
 import { Goods } from "@prisma/client";
-import Good from "../Good/Good";
 
+import Good from "../Good/Good";
 import { Session } from "next-auth";
 
 export type GoodsandFav = Goods & {
   isFavorite?: boolean
 }
+
 // export type Good = {
 //   image: string,
 //   title: string,
