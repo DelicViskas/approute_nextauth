@@ -1,5 +1,5 @@
 import { Goods } from "@prisma/client";
-import MyGood from "./MyGood";
+import MyGood from "./myGoodCard";
 
 
 export type GoodsandFav = Goods & {

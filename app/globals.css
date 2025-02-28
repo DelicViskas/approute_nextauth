@@ -46,10 +46,10 @@ a {
   gap: 20px;
   padding: 1em;
 
-  &:has(.noscroll) {
-    height: calc(100vh - 51px);
-    overflow-y: hidden;
-  }
+}
+*:has(.noscroll) {
+  height: 100vh;
+  overflow-y: hidden;
 }
 
 .center {

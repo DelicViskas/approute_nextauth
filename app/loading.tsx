@@ -1,8 +1,9 @@
-import Skeleton from "@/components/skeleton/SkeletonGoods";
+import SkeletonGrid from "@/components/skeleton/grid";
+
 
 export default function Loading() {
 
   return <div className="grid">
-    <Skeleton num={20}/>
+    <SkeletonGrid num={20}/>
     </div>
 }

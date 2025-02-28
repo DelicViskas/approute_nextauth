@@ -4,7 +4,7 @@ import { myGoodsURL, fetcher } from "@/swr/fetcher";
 
 
 import useSWR from "swr";
-import Loading from "@/app/loading";
+import Loading from "@/app/mygoods/loading";
 import MyGoodsList from "../MyGoodsList/MyGoodsList";
 
 

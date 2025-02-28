@@ -11,14 +11,10 @@
   }
   & img {
     height: 200px;
+    aspect-ratio: 1.33/2;
     object-fit: cover;
     border-radius: 8px;
   }
-  /* & button {
-    position: absolute;
-    bottom: 28px;
-    right: 0px;
-  } */
 }
 
 .title {

@@ -1,4 +1,4 @@
-import classes from "./MyGood.module.css";
+import classes from "./myGoodCard.module.css";
 import { GoodsandFav } from "../GoodsList/GoodsList";
 
 
@@ -6,9 +6,7 @@ import { GoodsandFav } from "../GoodsList/GoodsList";
 export default function MyGood({ good } : {good: GoodsandFav}) {
   const { description,created, image, title, price } = good;
 
-
-
-  return <><div className={`${classes.good} cursor-pointer`}>
+  return <><div className={`${classes.good}`}>
     <img src={image} height={300} alt={`Фото ${title}`} />
     <div>
       <span className={classes.title}>{title}</span>
