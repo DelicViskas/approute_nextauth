@@ -16,7 +16,7 @@ export default function GetMyGoods() {
   
   
   if (isLoading) return <Loading />
-  if (data?.length > 0) return <><MyGoodsList data={data} /></>
+  if (data?.length > 0) return <MyGoodsList data={data} />
   if (error) return <h1>Ошибка загрузки данных...</h1>
   return <h1>Добавьте товары</h1>
 }

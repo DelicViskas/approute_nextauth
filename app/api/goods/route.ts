@@ -15,10 +15,10 @@ export async function GET(/* request: NextRequest */) {
         Favorites: userId ? { where: { accountId: userId } } : false
       },
     })
-
-    return NextResponse.json(goods.map(good => ({
-      ...good,
-      isFavorite: good.Favorites?.length > 0
+    
+    return NextResponse.json(goods.map(({ Favorites, ...good }) => ({
+      ...good,  
+      isFavorite: Favorites?.length > 0
     })));
   } catch (error) {
     console.error("Ошибка загрузки данных:", error);

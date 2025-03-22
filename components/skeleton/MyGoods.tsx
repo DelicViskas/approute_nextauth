@@ -1,8 +1,8 @@
 import { Fragment } from "react";
 import classes from "./skeleton.module.css";
 
-export default function SkeletonFlex({num}:{num: number}) {
-  return Array.from({length: num}, () =><Fragment key={num + Math.random()}>
+export default function SkeletonMyGoods() {
+  return Array.from({length: 20}, (_,i : number) =><Fragment key={i + Math.random()}>
   <div className={`${classes.skeletonFlex} noscroll`}>
   <div className={classes.image}></div>
   <div className={classes.desc}>

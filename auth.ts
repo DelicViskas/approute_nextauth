@@ -17,18 +17,18 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     CredentialsProvider({
       name: 'Credentials',
       credentials: {
-        username: { label: 'Username', type: 'text' },
-        password: { label: 'Password', type: 'password' }
+        username: { label: 'Username', type: 'text', placeholder: '1 or admin' },
+        password: { label: 'Password', type: 'password', placeholder: 'отсутствует' }
       },
 
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       async authorize(credentials, req) {
         console.log('credentials', credentials);
-          if ('1' === credentials?.username )
-            return await prismaDB.user.findFirst({ where: { id: 'cm7dds9dm0000xf4kacz3bp3i' } });
-          if ('admin' === credentials?.username )
-            return await prismaDB.user.findFirst({ where: { id: 'cm7ddsa5u0005xf4ktvtekkv7' } });
-          
+        if ('1' === credentials?.username)
+          return await prismaDB.user.findFirst({ where: { id: 'cm7dds9dm0000xf4kacz3bp3i' } });
+        if ('admin' === credentials?.username)
+          return await prismaDB.user.findFirst({ where: { id: 'cm7ddsa5u0005xf4ktvtekkv7' } });
+
         return null;
       }
     })
@@ -37,13 +37,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     async jwt({ token, user }) {
       if (user) {
         token.id = user.id;
-        token.role = user.role; 
+        token.role = user.role;
       }
-      
+
       return token;
     },
     async session({ session, token }) {
-      if (session.user ){
+      if (session.user) {
         session.user.id = token.id as string;
         session.user.role = token.role as Role;
       }

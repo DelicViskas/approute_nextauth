@@ -1,10 +1,10 @@
 import classes from "./myGoodCard.module.css";
-import { GoodsandFav } from "../GoodsList/GoodsList";
+import { Good } from "../GoodsList/GoodsList";
 
 
 
-export default function MyGood({ good } : {good: GoodsandFav}) {
-  const { description,created, image, title, price } = good;
+export default function MyGood({ good }: { good: Good }) {
+  const { description, created, image, title, price } = good;
 
   return <><div className={`${classes.good}`}>
     <img src={image} height={300} alt={`Фото ${title}`} />
