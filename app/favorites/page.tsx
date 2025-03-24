@@ -1,3 +1,4 @@
+
 import { auth } from "@/auth";
 import GetFavorites from "@/components/GetFavorites/GetFavorites";
 

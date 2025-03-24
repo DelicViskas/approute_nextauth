@@ -43,3 +43,19 @@ export async function POST(request: NextRequest ) {
     return NextResponse.json({ error: "Ошибка при добвалении обявления" }, { status: 500 });
   }
 }
+
+export async function DELETE(request: NextRequest) {
+  try {
+    const id = (await request.json()).id
+    await prisma.goods.delete({
+      where: {
+        id
+      }
+    })
+
+    return NextResponse.json(`Товар успешно удален `, { status: 201 });
+  } catch (error) {
+    console.error("Ошибка при удалении из избранного:", error);
+    return NextResponse.json({ error: "Ошибка при удалении" }, { status: 500 });
+  }
+}

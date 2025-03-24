@@ -63,7 +63,7 @@ model Favorites {
   goodsId   Int
 
   account User  @relation(fields: [accountId], references: [id])
-  goods   Goods @relation(fields: [goodsId], references: [id])
+  goods   Goods @relation(fields: [goodsId], references: [id], onDelete: Cascade)
 
   @@id([accountId, goodsId])
 }

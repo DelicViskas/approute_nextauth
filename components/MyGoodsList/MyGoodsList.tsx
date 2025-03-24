@@ -2,18 +2,7 @@ import { Goods } from "@prisma/client";
 import MyGood from "./myGoodCard";
 
 
-export type GoodsandFav = Goods & {
-  isFavorite?: boolean
-}
-
-// export type Good = {
-//   image: string,
-//   title: string,
-//   price: number,
-//   id: number
-// }
-
-export default function MyGoodsList({ data } : {data : GoodsandFav[]}) {
+export default function MyGoodsList({ data } : {data : Goods[]}) {
 
   return <>
     {data.map(good =>

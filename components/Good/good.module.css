@@ -4,21 +4,34 @@
   position: relative;
   gap: 5px;
   min-height: 358px;
+  transition: scale .2s linear;
+  box-shadow: 2px 2px 5px #00000040;
+  border-radius: 1em;
+  overflow: hidden;
+  
+  &:hover {
+    scale: 1.01;
+  }
   & img {
     object-fit: cover;
-    border-radius: 8px;
   }
   & a {
+    cursor: text;
     font-size: 20px;
+    margin: 0 0.5em;
+    transition: color .2s;
+  }
+  & a:hover {
+    color: #00000040;
   }
   & button {
     position: absolute;
     bottom: 28px;
-    right: 0px;
+    right: 8px;
   }
 }
-
-
 .price {
   font-weight: bold;
+  margin: 0 0.6em;
 }
+
