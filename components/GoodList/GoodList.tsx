@@ -12,7 +12,6 @@ export type Good = Goods & {
 }
 export default function GoodsList({ url, session }: { url: string, session: Session | null }) {
   const { data, error, isLoading } = useSWR<Good[]>(url, fetcher);
-  if(!data && url === goodsURL)  mutate(favoritesURL,undefined,false)
 
   
   const toggleFav = async (good: Good) => {
@@ -44,13 +43,17 @@ export default function GoodsList({ url, session }: { url: string, session: Sess
       } catch (error) {
         console.error(error);
       }
-      if(url === goodsURL) {
-        mutate(url)
-        mutate(favoritesURL,undefined,false)
-      } else {
-        mutate(goodsURL,undefined,false)
-      }
+      mutate(url === goodsURL ? url : null)
       mutate(countFavorites)
+
+      // if(!data && url === goodsURL)  mutate(favoritesURL,undefined,false)
+      //   if(url === goodsURL) { // возможно ненужный блок кода, versel так не кеширует
+      //     mutate(url)
+      //     mutate(favoritesURL,undefined,false)
+      //   } else {
+      //     mutate(goodsURL,undefined,false)
+      //   }
+      //   mutate(countFavorites)
     }
   }
 
