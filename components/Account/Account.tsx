@@ -11,7 +11,7 @@ export default async function Account() {
   const session = await auth();
 
   if (session?.user) {
-    return <div className="center border-left cursor-pointer"> {/* ссылка на профиль  */}
+    return <div className={classes.account}> {/* ссылка на профиль  */}
       <Image className={classes.userIcon} src={session.user?.image? session.user.image : iconPlaceh} alt='user icon' width={50} height={50} />
       <span>{session.user?.name}</span>
       <SignOut />

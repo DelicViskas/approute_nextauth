@@ -1,7 +1,7 @@
 import { auth } from '@/auth';
 import { prisma } from '@/prisma/prisma';
 
-import { type NextRequest,  NextResponse } from 'next/server'
+import { type NextRequest, NextResponse } from 'next/server'
 
 
 
@@ -9,7 +9,7 @@ export async function GET(/* request: NextRequest */) {
   try {
     const session = await auth();
 
-    if(session?.user?.role === 'ADMIN') {
+    if (session?.user?.role === 'ADMIN') {
       const goods = await prisma.goods.findMany({
 
       });
@@ -34,9 +34,9 @@ export async function GET(/* request: NextRequest */) {
   }
 }
 
-export async function POST(request: NextRequest ) {
+export async function POST(request: NextRequest) {
   try {
-  console.log(request.body);
+    console.log(await request.json());
 
   } catch (error) {
     console.error("Ошибка при добвалении обявления:", error);

@@ -70,7 +70,7 @@ export async function DELETE(request: NextRequest) {
         }
       }
     })
-    
+
     return NextResponse.json(`Товар успешно удален`, { status: 201 });
   } catch (error) {
     console.error("Ошибка при удалении из избранного:", error);

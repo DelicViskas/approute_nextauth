@@ -8,7 +8,7 @@
   border-radius: .8em;
   transition: scale .2s linear;
   & img {
-    aspect-ratio: 133/200;
+    /* aspect-ratio: 133/200; */
   }
   &:hover {
     scale: 1.005;

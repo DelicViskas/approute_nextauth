@@ -6,7 +6,7 @@
   /* box-shadow: 5px 0 5px #00000040; */
   overflow: hidden;
   z-index: 9999;
-  border-bottom: 1px solid #00000040;
+  border-bottom: 1.5px solid #00000040;
   &>div {
     width: min(100%, 1200px);
     margin: 0 auto;
@@ -19,7 +19,9 @@
     & img {
       height: 50px;
     }
-    
+    & a {
+      position: relative;
+    }
   }
 }
 

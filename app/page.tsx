@@ -1,10 +1,13 @@
 import { auth } from "@/auth";
-import GetAllGoods from "@/components/GetAllGoods/GetAllGoods";
+import GoodsList from "@/components/GoodList/GoodList";
+import { goodsURL } from "@/swr/fetcher";
+
 
 
 
 export default async function Home() {
   const session = await auth();
-  
-  return <GetAllGoods session={session}/>
+
+
+  return <GoodsList session={session} url={goodsURL} />
 }

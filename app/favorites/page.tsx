@@ -1,10 +1,10 @@
-
 import { auth } from "@/auth";
-import GetFavorites from "@/components/GetFavorites/GetFavorites";
+import GoodsList from "@/components/GoodList/GoodList";
+import { favoritesURL } from "@/swr/fetcher";
 
 
 export default async function Home() {
   const session = await auth();
 
-  return <GetFavorites session={session}/>
+  return <GoodsList session={session} url={favoritesURL} />
 }

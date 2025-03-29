@@ -1,11 +1,5 @@
-
-import GetMyGoods from "@/components/GetMyGoods/GetMyGoods";
-
-
- 
+import MyGoodsList from "@/components/MyGoodsList/MyGoodsList"; 
 
 export default async function Home() {
-
-  return <GetMyGoods/>
-
+  return <MyGoodsList />
 }
