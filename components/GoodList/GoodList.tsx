@@ -7,13 +7,19 @@ import useSWR, { mutate } from "swr";
 import { Session } from "next-auth";
 import GoodCard from "./GoodCard";
 import ErrorPage from "@/app/error";
+import { useEffect } from "react";
 export type Good = Goods & {
   isFavorite?: boolean
 }
+
 export default function GoodsList({ url, session }: { url: string, session: Session | null }) {
   const { data, error, isLoading } = useSWR<Good[]>(url, fetcher);
+  useEffect(() => {
+    if (url === goodsURL) {
+      mutate(favoritesURL, undefined, false);
+    }
+  }, [url]);
 
-  
   const toggleFav = async (good: Good) => {
     const { id, isFavorite } = good;
     if (session) {
@@ -39,32 +45,28 @@ export default function GoodsList({ url, session }: { url: string, session: Sess
           },
           body: JSON.stringify(id)
         });
-        if (!res.ok) throw new  Error("Ошибка обновления избранного");
+        if (!res.ok) throw new Error("Ошибка обновления избранного");
       } catch (error) {
         console.error(error);
       }
-      mutate(url === goodsURL ? url : null)
+      if (url === goodsURL) {
+        mutate(url)
+        mutate(favoritesURL, undefined, false)
+      } else {
+        mutate(goodsURL, undefined, false)
+      }
       mutate(countFavorites)
-
-      // if(!data && url === goodsURL)  mutate(favoritesURL,undefined,false)
-      //   if(url === goodsURL) { // возможно ненужный блок кода, versel так не кеширует
-      //     mutate(url)
-      //     mutate(favoritesURL,undefined,false)
-      //   } else {
-      //     mutate(goodsURL,undefined,false)
-      //   }
-      //   mutate(countFavorites)
     }
   }
 
   if (isLoading) return <Loading />
-  if (error) return <ErrorPage  error={error}/>
+  if (error) return <ErrorPage error={error} />
   if (data?.length) return <div className="grid">
     {data.map(good =>
       <GoodCard good={good} key={good.title} session={session} toggleFav={() => toggleFav(good)} />
     )}
   </div>
-  if (url === favoritesURL) 
+  if (url === favoritesURL)
     return <div className="center">
       <h3>Нет товаров в избранном</h3>
     </div>
