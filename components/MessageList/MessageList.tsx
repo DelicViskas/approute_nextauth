@@ -14,80 +14,77 @@ export default function MessageList() {
       sender_ms: "user123",
       receiver_ms: "user456",
       text: "Привет! Как твои дела?",
-      created: new Date("2025-03-20T10:15:30Z"),
-      updated: new Date("2025-03-20T10:15:30Z"),
+      createdAt: new Date("2025-03-20T10:15:30Z"),
     },
     {
       id: 2,
       sender_ms: "user456",
       receiver_ms: "user123",
       text: "Привет! Все хорошо, спасибо. А у тебя?",
-      created: new Date("2025-03-20T10:17:45Z"),
-      updated: new Date("2025-03-20T10:17:45Z"),
+      createdAt: new Date("2025-03-20T10:17:45Z"),
     },
     {
       id: 3,
       sender_ms: "user123",
       receiver_ms: "user456",
       text: "Тоже все отлично. Чем занимаешься?",
-      created: new Date("2025-03-20T10:20:10Z"),
-      updated: new Date("2025-03-20T10:20:10Z"),
+      createdAt: new Date("2025-03-20T10:20:10Z"),
+
     },
     {
       id: 4,
       sender_ms: "user456",
       receiver_ms: "user123",
       text: "Смотрю новый сериал. А ты?",
-      created: new Date("2025-03-20T10:22:05Z"),
-      updated: new Date("2025-03-20T10:22:05Z"),
+      createdAt: new Date("2025-03-20T10:22:05Z"),
+
     },
     {
       id: 5,
       sender_ms: "user123",
       receiver_ms: "user456",
       text: "Читаю интересную книгу.",
-      created: new Date("2025-03-20T10:25:30Z"),
-      updated: new Date("2025-03-20T10:25:30Z"),
+      createdAt: new Date("2025-03-20T10:25:30Z"),
+
     },
     {
       id: 6,
       sender_ms: "user789",
       receiver_ms: "user123",
       text: "Привет! Ты сегодня свободен?",
-      created: new Date("2025-03-21T09:00:00Z"),
-      updated: new Date("2025-03-21T09:00:00Z"),
+      createdAt: new Date("2025-03-21T09:00:00Z"),
+
     },
     {
       id: 7,
       sender_ms: "user123",
       receiver_ms: "user789",
       text: "Да, свободен. Что планируешь?",
-      created: new Date("2025-03-21T09:05:15Z"),
-      updated: new Date("2025-03-21T09:05:15Z"),
+      createdAt: new Date("2025-03-21T09:05:15Z"),
+
     },
     {
       id: 8,
       sender_ms: "user789",
       receiver_ms: "user123",
       text: "Может, сходим в кино?",
-      created: new Date("2025-03-21T09:10:20Z"),
-      updated: new Date("2025-03-21T09:10:20Z"),
+      createdAt: new Date("2025-03-21T09:10:20Z"),
+
     },
     {
       id: 9,
       sender_ms: "user123",
       receiver_ms: "user789",
       text: "Отличная идея! Во сколько встречаемся?",
-      created: new Date("2025-03-21T09:15:00Z"),
-      updated: new Date("2025-03-21T09:15:00Z"),
+      createdAt: new Date("2025-03-21T09:15:00Z"),
+
     },
     {
       id: 10,
       sender_ms: "user789",
       receiver_ms: "user123",
       text: "Давай в 18:00 у входа в кинотеатр.",
-      created: new Date("2025-03-21T09:20:30Z"),
-      updated: new Date("2025-03-21T09:20:30Z"),
+      createdAt: new Date("2025-03-21T09:20:30Z"),
     },
   ];
   // if (isLoading) return <Loading />

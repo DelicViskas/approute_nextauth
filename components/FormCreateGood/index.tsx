@@ -1,14 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
 import classes from "./index.module.css";
 import ButtonIcon from "../Button/Button-icon";
 import Button from "../Button/Button";
 import Image from "next/image";
 import { Good } from "../GoodList/GoodList";
 import removeIcon from "@/public/closegray.svg";
-import { goodsURL } from "@/swr/fetcher";
+// import { goodsURL } from "@/swr/fetcher";
 
 
 export default function FormCreateGood({ good, onClose, saveEditGood }: { good?: Good, onClose?: () => void, saveEditGood?: (formData: FormData) => Promise<void> }) {
@@ -16,23 +16,23 @@ export default function FormCreateGood({ good, onClose, saveEditGood }: { good?:
   const [price, setPrice] = useState(good?.price || '');
   const [description, setDescription] = useState(good?.description || '');
   // const [categoryId, setCategoryId] = useState("");
-  const [images, setImages] = useState<File[]>([]);
+  // const [images, setImages] = useState<File[]>([]);
   const [preview, setPreview] = useState<string[]>(good?.image ? [good.image] : []);
-  const [error, setError] = useState("");
+  // const [error, setError] = useState("");
   // const categories = useContext();
-  const router = useRouter();
+  // const router = useRouter();
 
   const uploadImage = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = event.target.files;
     if (files) {
       const newFiles = Array.from(files);
-      setImages(prev => [...prev, ...newFiles]);
+      // setImages(prev => [...prev, ...newFiles]);
       setPreview(prev => [...prev, ...newFiles.map(file => URL.createObjectURL(file))]);
     }
   };
 
   const removeImage = (index: number) => {
-    setImages(prev => prev.filter((_, i) => i !== index)); 
+    // setImages(prev => prev.filter((_, i) => i !== index)); 
     setPreview(prev => prev.filter((_, i) => i !== index));
   };
 
@@ -40,7 +40,7 @@ export default function FormCreateGood({ good, onClose, saveEditGood }: { good?:
   const submitForm = async (event: React.FormEvent) => {
     event.preventDefault();
 
-    const formData = new FormData(event.target as HTMLFormElement);
+    // const formData = new FormData(event.target as HTMLFormElement);
     // images.forEach((image, index) => {
     //   formData.append(`images[${index}]`, image);
     // });
@@ -51,7 +51,7 @@ export default function FormCreateGood({ good, onClose, saveEditGood }: { good?:
 
   return <form className={classes.form} onSubmit={submitForm}>
     {good && <ButtonIcon onClick={onClose} width={30} height={50} src={removeIcon} title="удалить" alt="удалить" />}
-    {error && <p>{error}</p>}
+    {/* {error && <p>{error}</p>} */}
     <input type="hidden" name="id" value={good?.id} />
 
     
