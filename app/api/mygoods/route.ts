@@ -9,12 +9,6 @@ export async function GET(/* request: NextRequest */) {
   try {
     const session = await auth();
 
-    if (session?.user?.role === 'ADMIN') {
-      const goods = await prisma.goods.findMany({
-
-      });
-      return NextResponse.json(goods);
-    }
     if (!session?.user) return NextResponse.json(null);
     const
       mynotices = await prisma.user.findUnique({

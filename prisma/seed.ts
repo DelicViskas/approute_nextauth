@@ -39,8 +39,7 @@ async function main() {
             description: `Description for product ${i + 1}`,
             categoryId: categories[Math.floor(Math.random() * categories.length)].id,
             accountId: users[Math.floor(Math.random() * users.length)].id,
-            created: new Date(),
-            updated: new Date(),
+            createdAt: new Date(),
             image: 'https://placehold.co/200x300'
           }
         }))

@@ -15,6 +15,7 @@ import ErrorPage from "@/app/error";
 export default function MyGoodsList() {
   const { data, error, isLoading } = useSWR<Goods[]>(myGoodsURL, fetcher);
   const router = useRouter();
+
   if (isLoading) return <Loading />;
   if (error) return <ErrorPage  error={error}/>
   if (data?.length === 0) 

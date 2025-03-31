@@ -8,18 +8,20 @@ import { Session } from "next-auth";
 import GoodCard from "./GoodCard";
 import ErrorPage from "@/app/error";
 import { useEffect } from "react";
+
 export type Good = Goods & {
   isFavorite?: boolean
 }
 
 export default function GoodsList({ url, session }: { url: string, session: Session | null }) {
   const { data, error, isLoading } = useSWR<Good[]>(url, fetcher);
+
   useEffect(() => {
     if (url === goodsURL) {
       mutate(favoritesURL, undefined, false);
     }
   }, [url]);
-
+  
   const toggleFav = async (good: Good) => {
     const { id, isFavorite } = good;
     if (session) {

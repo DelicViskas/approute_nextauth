@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from '@/public/logo.svg'
 import cards from '@/public/cards.svg'
+import admin from '@/public/admin.svg'
 import envelope from '@/public/envelope.svg'
 import favorites from '@/public/favorites.svg'
 import add from '@/public/plus.svg'
@@ -15,10 +16,10 @@ import FavoriteCountClient from "../FavoritesCounter";
 
 export default async function Header() {
   const session = await auth();
-  
+
   return <header className={classes.header}>
     <div>
-      
+
       <Link className={classes.logo} href={'/'}>
         <Image priority height={50} width={135} src={logo} alt="logo" />
       </Link>
@@ -28,6 +29,9 @@ export default async function Header() {
       </div> */}
       <div className={classes.btnGroup}>
         {session && <>
+          {session?.user?.role === "ADMIN" ? <Link href={'/admin'}>
+            <ButtonIcon src={admin} height={50} width={24} title="админка" alt="админка"></ButtonIcon>
+          </Link> : false}
           <Link href={'/creategood'}>
             <ButtonIcon src={add} height={50} width={24} title="разместить объявление" alt="разместить объявление"></ButtonIcon>
           </Link>

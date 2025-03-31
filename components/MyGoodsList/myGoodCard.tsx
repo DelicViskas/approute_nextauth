@@ -17,7 +17,7 @@ import FormCreateGood from "../FormCreateGood";
 export default function MyGood({ good }: { good: Good }) {
   const [popupConfirmActive, setPopupConfirmActive] = useState(false);
   const [popupEditActive, setPopupEditActive] = useState(false);
-  const { id, description, created, image, title, price } = good;
+  const { id, description, createdAt, image, title, price } = good;
   const removeGood = async () => {
     try {
       mutate(myGoodsURL, (goods: Good[] = []) => goods.filter(g => g.id !== id), false)
@@ -72,7 +72,7 @@ export default function MyGood({ good }: { good: Good }) {
         <span className={classes.title}>{title}</span>
         <span className={classes.price}>{price} ₽</span>
         <span className={classes.description}>{description}</span>
-        <span className={classes.created}>Создано: {new Date(created).toLocaleDateString("ru-ru")}</span>
+        <span className={classes.created}>Создано: {new Date(createdAt).toLocaleDateString("ru-ru")}</span>
       </div>
       <div className={classes.btnGroup}>
         <ButtonIcon onClick={showEditWindow} width={30} height={50} src={editIcon} title="редактировать" alt="редактировать" />
